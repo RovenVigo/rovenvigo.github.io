@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+#days {
+    margin-top: 10em;
+}
+
+.weatherBox {
+    display: inline-block;
+    border: solid black;
+    margin: 15px;
+    background-color: gray;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.getImg {
+    width: 5em;
+}
+
+#days {
+    padding: 10px;
+}
+
+#weather-button {
+    border-width: 10px;
+    cursor: pointer;
+}

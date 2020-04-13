@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <input id="days" placeholder="Enter days..."> <button id="weather-button" onclick="generateWeather()">Generate</button><br>
+        <button id="sort-button" onclick="sortButton()">Sort</button>
+        <div id="temp-today">
+            <p id="show-temp"></p>
+            <img id="image">
+
+        </div>
+        
+        <script>
+            var measurements = 10;
+            var temperatures = [];
+            var avg = 0;
+            var weather = ["cloud" , "sun" , "snowy" , "rain"];
+            var randomWeather = weather[Math.floor(Math.random() * weather.length)]
+            
+            var realTempFeel = 10;
+            var realTempFeelMsrm = [];
+            var realTempAvg = 0;
+
+            var winterWeather = ["cloud" , "sun" , "snowy"];
+            var springWeather = ["cloud" , "sun" , "rain"];
+
+            
+
+            for (var index = 0; index < measurements; index++) {
+                temperatures.push((Math.floor((Math.random() * 15) - 10))); 
+                avg += temperatures[index];
+                console.log(temperatures[index]);
+            }
+             temperatures.sort(function(a, b) {
+                 return a - b ;
+            });
+            
+
+            console.log("Average temp: " + avg / temperatures.length);
+            console.log("Min temp: " + temperatures[0]);
+            console.log("Max temp: " + temperatures[temperatures.length - 1]);
+            
+            function generateWeather() {
+                measurments = document.getElementById("days").value;
+
+                temperatures = [];
+
+                realTempFeelMsrm= document.getElementById("days").value;
+
+                realTempFeel = [];
+
+             for (var index = 0; index < measurments; index++) {
+                temperatures.push((Math.floor((Math.random() * 15) - 10)));
+                avg += temperatures[index];
+            }
+            
+            for (var index = 0; index < realTempFeelMsrm; index++) {
+                realTempFeel.push((Math.floor((Math.random() * 10) - 10)));
+                realTempAvg += realTempFeel[index];
+            }
+
+                
+                var n = Number(document.getElementById("days").value);
+                var content = document.getElementById('temp-today');
+                content.innerHTML="";
+                
+                for(var count = 0; count < n; count++){
+                var weatherBox = document.createElement('div');
+                weatherBox.classList.add("weatherBox");
+                content.appendChild(weatherBox);
+
+                var dayNumber = document.createElement('p');
+                dayNumber.innerHTML = "Day " + (count + 1);
+                dayNumber.classList.add("dayCount");
+                weatherBox.appendChild(dayNumber);
+
+                var getImg = document.createElement('img');
+                getImg.src = "./images/" + weather[Math.floor(Math.random() * weather.length)] +".png";
+                getImg.classList.add("getImg");
+                weatherBox.appendChild(getImg);
+
+                var weatherTemp = document.createElement('p');
+                weatherTemp.innerHTML = temperatures[count] + "&#176C";
+                weatherTemp.classList.add("weatherTemp");
+                weatherBox.appendChild(weatherTemp);
+
+                var realFeel = document.createElement('p');
+                realFeel.innerHTML = "Feels like " + realTempFeel[count] + "&#176C";
+                realFeel.classList.add("weatherTemp");
+                weatherBox.appendChild(realFeel);
+                
+                    var randomWinterWeather = winterWeather[Math.floor(Math.random() * winterWeather.length)]
+                    var randomSpringWeather = springWeather[Math.floor(Math.random() * springWeather.length)]
+
+                if (temperatures[count] < 0) {
+                    weatherBox.classList.add(randomWinterWeather);
+                    getImg.src = "./images/" + randomWinterWeather +".png";
+                    getImg.classList.add("getImg");
+                    weatherBox.appendChild(getImg);
+                } else {
+                    weatherBox.classList.add(randomSpringWeather);
+                    getImg.src = "./images/" + randomSpringWeather +".png";
+                    getImg.classList.add("getImg");
+                    weatherBox.appendChild(getImg);
+                }
+
+                }
+    
+            }
+            
+            function sortButton() {
+            
+            }
+
+         </script>
+    </body>
+    
