@@ -11,6 +11,22 @@
 		//alert("Я хочу дотронуться до девушек ночью");
 		alert("NEW DEALS ON STRATOCASTER GUITARS!!! STARTING AS LOW AS 230€!!!");
 		//document.write("WEBSITE");
+
+	var guitar = {
+		model: "Flying V",
+		color: "white",
+		frets: 24,
+		neck: "maple wood",
+	}
+	console.log(guitar);
+	var makeString = JSON.stringify(guitar);
+	console.log(makeString);
+
+	var hat = JSON.parse('{"id": 0,"title":"Hat","imageURL": "https://i.imgur.com/HgIzJ0O.png","description": "A retro hat from 1972 wore by Jim Morrison. Size L","price": 25.99}');
+	console.log(hat);
+
+	document.getElementById("logo").innerHTML = hat.title;
+
 	</script>
 
 	<link rel="shortcut icon" type="image" href="https://image.flaticon.com/icons/svg/131/131010.svg" />
@@ -35,8 +51,8 @@
 		<h1>Shop</h1></a>
 		<a href="https://www.figma.com/proto/WlaT99mX4seTAm3rh0X8Dg/Rovens-Marketplace?node-id=19%3A6&scaling=scale-down">
 		<h1>Prototype</h1></a>
-		
 		<a href="https://docs.google.com/document/d/1XBKQyDP0oD6Ul03pXlnvyFHnqn0kf9bcqciUDwV4Tqg/edit#heading=h.3gxpbnouozbn"><h1>More info</h1></a>
+		<a href="support.html"><h1>Support</h1></a>
 	</div>
 
 	<div class="backimage">
