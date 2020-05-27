@@ -46,9 +46,7 @@ h1, p {
 }
 .kok {
   background-color: rgba(119, 125, 135, 0.5);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: block;
   border-left: 7px solid black;
   border-right: 7px solid black;
   margin: 10px;
