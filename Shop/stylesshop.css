@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+}
+#container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #444;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+.grid-item {
+    width: 10em;
+    height: 15em;
+    background-color: rgb(255, 255, 255);
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+}
+.image {
+    height: 75px;
+    width: 75px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding: 3px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+#navigation {
+    display: flex;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+#cart {
+   color: white;
+   display: flex;
+   font-size: 30px;
+   margin-right: 10px;
+   align-self: center;
+}
+.show-cart {
+    width: 18em;
+}

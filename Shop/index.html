@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <link href="stylesshop.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <div id="navigation"> <p><a style="color: white; text-decoration: none;" href="">Home</a> <a style="color: white; text-decoration: none;" href="" >Offers</a> <a style="color: white; text-decoration: none;" href="">Contact</a> <a style="color: white; text-decoration: none;" href="">About</a></p>
+            </div>
+            <div id="cart">Cart</div>
+            
+        </div>
+        
+        <div id="container">
+        </div>
+        
+        <script>
+          var items = [
+        {
+            "id": 0,
+            "title": "Hat",
+            "imageURL": "https://i.imgur.com/HgIzJ0O.png",
+            "description": "A retro hat from 1972 wore by Jim Morrison. Size L",
+            "price": 25.99
+        },
+        {
+            "id": 1,
+            "title": "Guitar",
+            "imageURL": "https://i.imgur.com/1pc347r.png",
+            "description": "Used by Jimi Hendrix in Spain tour 1969. Left-handed.",
+            "price": 7560
+        },
+        {
+            "id": 2,
+            "title": "Headset",
+            "imageURL": "https://i.imgur.com/BU1u53U.png",
+            "description": "Mono/Stereo sound.",
+            "price": 129.99
+        },
+        {
+            "id": 3,
+            "title": "Backpack",
+            "imageURL": "https://i.imgur.com/WOGQ3ll.png",
+            "description": "25 liters travel fake-leather",
+            "price": 59.99
+        },
+        {
+            "id": 4,
+            "title": "Glasses",
+            "imageURL": "https://i.imgur.com/KQssRzO.png",
+            "description": "-3.75 left eye -4.25 right eye. Can you buy glasses like this somewhere else? You cannot.",
+            "price": 158.45
+        },
+        {
+            "id": 5,
+            "title": "Camera",
+            "imageURL": "https://i.imgur.com/hifcDsd.png",
+            "description": "Works only with Kodak Pro-289l films",
+            "price": 46.15
+        },
+        {
+            "id": 6,
+            "title": "Skate",
+            "imageURL": "https://i.imgur.com/KiZi7HQ.png",
+            "description": "Tony Hawks first skate.",
+            "price": 2500
+        },
+        {
+            "id": 7,
+            "title": "Shirt",
+            "imageURL": "https://i.imgur.com/4OZIWFV.png",
+            "description": "Wore by Elvis Presley in Acapulco film.",
+            "price": 756
+        },
+        {
+            "id": 8,
+            "title": "Sneakers",
+            "imageURL": "https://i.imgur.com/4GtCkkJ.png",
+            "description": "Used by Bugs Bunny in Space-Jam",
+            "price": 259.30
+        },
+        {
+            "id": 9,
+            "title": "Shoes",
+            "imageURL": "https://i.imgur.com/uRXDvwK.png",
+            "description": "Only one. Right foot.",
+            "price": 79.99
+        },
+        {
+            "id": 10,
+            "title": "Red Hat",
+            "imageURL": "https://i.imgur.com/qvwxXYY.png",
+            "description": "Outlander's costume. Unique piece!",
+            "price": 250
+        },
+        {
+            "id": 11,
+            "title": "Brown Beanie",
+            "imageURL": "https://i.imgur.com/zZAtqkD.png",
+            "description": "Want to be cool but look like idiot? Buy this hat.",
+            "price": 829.15
+        },
+        {
+            "id": 12,
+            "title": "Blue Jeans",
+            "imageURL": "https://i.imgur.com/PMFkkjS.png",
+            "description": "Blue jeans, white shirt. Walked into the room you know you made my eyes burn",
+            "price": 150.90
+        },
+        {
+            "id": 13,
+            "title": "Brown Pants",
+            "imageURL": "https://i.imgur.com/PmCMb4p.png",
+            "description": "They are so ugly that we give them out for almost nothing",
+            "price": 1.99
+        },
+        {
+            "id": 14,
+            "title": "Radio",
+            "imageURL": "https://i.imgur.com/Xd1YRFS.png",
+            "description": "AM only. Volumne knob broken but works at max volume",
+            "price": 5.99
+        }        
+    ];
+        var itemsHTML = document.getElementById("container");
+        var cart = [];
+        var cartHTML = document.getElementById("cart");
+        
+        
+        for(i = 0; i < items.length; i++) {
+            
+            var containerHTML = document.createElement('div');
+            containerHTML.classList.add("grid-item");
+            itemsHTML.appendChild(containerHTML);
+            
+            
+            let item = items[i];
+
+            var image = document.createElement("img");
+            image.src = items[i].imageURL;
+            containerHTML.appendChild(image);
+            image.classList.add("image");
+            
+            var titleHTML = document.createElement("p");
+            titleHTML.innerHTML = items[i].title;
+            containerHTML.appendChild(titleHTML);
+            
+
+            var descHTML = document.createElement("p");
+            descHTML.innerHTML = items[i].description;
+            containerHTML.appendChild(descHTML);
+            
+
+            var priceHTML = document.createElement("p");
+            priceHTML.innerHTML = items[i].price;
+            containerHTML.appendChild(priceHTML);
+            
+
+            var addButton = document.createElement("button");
+            addButton.innerHTML = "Add";
+            addButton.addEventListener("click", function() {
+                cart.push(item);
+                console.log(cart);
+                calculateTotal();
+            });
+            containerHTML.appendChild(addButton);
+            
+            
+            var removeButton = document.createElement("button");
+            removeButton.innerHTML = "Remove";
+            removeButton.addEventListener("click", function() {
+                cart.pop(item);
+                console.log(cart);
+                calculateTotal();
+            });
+            containerHTML.appendChild(removeButton);
+            
+        }
+        
+            function calculateTotal() {
+                var total = 0;
+                for(i = 0; i < cart.length; i++) {
+                    total += cart[i].price;
+                }
+                cartHTML.innerHTML = "Total is: " + total.toFixed(2) + ", items: " + cart.length;
+            }
+        </script>
+    </body>
+</html>
+
+vaatab kas arrays on midagi või ei
+if (cart.includes(items[index].title)) {
+    console.log("test");
+} else {
+    console.log("test2")
+}
